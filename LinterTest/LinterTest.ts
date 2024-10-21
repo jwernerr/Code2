@@ -8,7 +8,7 @@ namespace LinterTest {
     POS = 1, NEG = -1
   }
 
-  const info:Info = { text: "G`udetmvhsgBncd1 ", key: KEY.POS };
+  const info:Info = { text: "G`udetmvhsgBncd1 ", key: KEY.POS };
   console.log(deCrypt(info.text, info.key));
 
   function deCrypt(_text: string, _key: number):string {
@@ -18,5 +18,5 @@ namespace LinterTest {
     }
     return result;
   }
-  
+
 }
