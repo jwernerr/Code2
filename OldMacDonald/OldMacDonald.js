@@ -29,7 +29,7 @@ function simulate() {
         counter++;
     }
     else {
-        let critFoods = [];
+        const critFoods = [];
         for (let i = 1; i < foods.length; i + 2) {
             if (foods[i] <= 10) {
                 critFoods.push(foods[i - 1]);

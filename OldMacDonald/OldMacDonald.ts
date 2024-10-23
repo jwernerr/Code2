@@ -36,7 +36,7 @@ function simulate():void{
 
     }
     else{
-        let critFoods:string[]=[];
+        const critFoods:string[]=[];
         for (let i:number=1;i<foods.length;i+2){
             if (<number>foods[i]<=10){
                 critFoods.push(<string>foods[i-1]);
