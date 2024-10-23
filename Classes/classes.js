@@ -20,7 +20,7 @@ var Classes;
             this.y = _y;
         }
     }
-    let v1 = new Vector(1, 2);
+    const v1 = new Vector(1, 2);
     v1.set(2, 5);
     v1.scale(2);
     console.log(v1);
