@@ -20,6 +20,7 @@ class Food {
             const para = document.createElement("p");
             para.innerHTML = "Old MacDonald has bought " + boughtAmount + "kgs of " + this.type + ".";
             _element.appendChild(para);
+            this.critical = false;
         }
     }
 }
