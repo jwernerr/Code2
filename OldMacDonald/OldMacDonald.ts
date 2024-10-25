@@ -1,11 +1,11 @@
-let animals:Animal[]=[];
-let foods:(string|number)[]=[]
+const animals:Animal[]=[];
+const foods:(string|number)[]=[]
 let counter:number=0
 
 
 
 window.addEventListener("load",handleLoad);
-function handleLoad(_event:Event):void{
+function handleLoad():void{
     document.getElementsByTagName("button")[0].addEventListener("click",simulate);
     
     for (let i:number=0;i<6;i++){

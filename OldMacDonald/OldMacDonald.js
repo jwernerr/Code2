@@ -1,9 +1,9 @@
 "use strict";
-let animals = [];
-let foods = [];
+const animals = [];
+const foods = [];
 let counter = 0;
 window.addEventListener("load", handleLoad);
-function handleLoad(_event) {
+function handleLoad() {
     document.getElementsByTagName("button")[0].addEventListener("click", simulate);
     for (let i = 0; i < 6; i++) {
         const names = ["Jeep", "Sir Hubert", "Jaques", "Garlic", "Stinky", "Rodney"];
