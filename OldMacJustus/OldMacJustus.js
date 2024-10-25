@@ -1,19 +1,28 @@
 "use strict";
 window.addEventListener("load", handleLoad);
-let animals = [];
-let foodSupplies = [];
+const animals = [];
+const foodSupplies = [];
 let day = 0;
 function handleLoad() {
-    const animalNames = [];
-    const animalTypes = [];
-    const foods = [];
-    const animalSounds = [];
+    const animalNames = ["Sir Hubert", "Garlic", "Goobie", "Jesus", "Noodle", "Rodney"];
+    const animalTypes = ["rat", "hamster", "mouse", "raccoon", "cat", "alligator"];
+    const animalSounds = ["squeak", "squeak", "squeak", "hiss", "meow", "hiss"];
+    const foodNames = ["cheese", "salad", "cheese", "trash", "meat", "meat"];
     for (let i = 0; i < animalNames.length; i++) {
-        const newAnimal = new Animal(animalNames[i], animalTypes[i], foods[i], animalSounds[i]);
-        animals.push(newAnimal);
-        if (foodSupplies.indexOf(foods[i]) === -1) {
-            foodSupplies.push(foods[i]);
+        let animalFood = new Food("");
+        let exists = false;
+        for (let j = 0; j < foodSupplies.length; j++) {
+            if (foodSupplies[j].type === foodNames[i]) {
+                exists = true;
+                animalFood = foodSupplies[j];
+            }
         }
+        if (!exists) {
+            animalFood = new Food(foodNames[i]);
+            foodSupplies.push(animalFood);
+        }
+        const newAnimal = new Animal(animalNames[i], animalTypes[i], animalFood, animalSounds[i]);
+        animals.push(newAnimal);
     }
     document.getElementsByTagName("button")[0].addEventListener("click", startDay);
 }
@@ -31,5 +40,8 @@ function startDay() {
     }
     for (let i = 0; i < foodSupplies.length; i++) {
         foodSupplies[i].report(fooddiv);
+    }
+    for (let i = 0; i < foodSupplies.length; i++) {
+        foodSupplies[i].restock(fooddiv);
     }
 }

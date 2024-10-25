@@ -1,20 +1,30 @@
 window.addEventListener("load", handleLoad);
 
-let animals: Animal[] = [];
-let foodSupplies: Food[] = [];
+const animals: Animal[] = [];
+const foodSupplies: Food[] = [];
 let day: number = 0;
 function handleLoad(): void {
-    const animalNames: string[] = [];
-    const animalTypes: string[] = [];
-    const foods: Food[] = [];
-    const animalSounds: string[] = [];
+    const animalNames: string[] = ["Sir Hubert", "Garlic", "Goobie", "Jesus", "Noodle", "Rodney"];
+    const animalTypes: string[] = ["rat", "hamster", "mouse", "raccoon", "cat", "alligator"];
+    const animalSounds: string[] = ["squeak", "squeak", "squeak", "hiss", "meow", "hiss"];
+    const foodNames: string[] = ["cheese", "salad", "cheese", "trash", "meat", "meat"]
 
     for (let i: number = 0; i < animalNames.length; i++) {
-        const newAnimal: Animal = new Animal(animalNames[i], animalTypes[i], foods[i], animalSounds[i])
-        animals.push(newAnimal);
-        if (foodSupplies.indexOf(foods[i]) === -1) {
-            foodSupplies.push(foods[i]);
+        let animalFood: Food = new Food("");
+        let exists: boolean = false;
+        for (let j: number = 0; j < foodSupplies.length; j++) {
+            if (foodSupplies[j].type === foodNames[i]) {
+                exists = true;
+                animalFood = foodSupplies[j];
+            }
         }
+        if (!exists) {
+            animalFood = new Food(foodNames[i]);
+            foodSupplies.push(animalFood);
+        }
+
+        const newAnimal: Animal = new Animal(animalNames[i], animalTypes[i], animalFood, animalSounds[i])
+        animals.push(newAnimal);
     }
 
     document.getElementsByTagName("button")[0].addEventListener("click", startDay);
@@ -37,5 +47,9 @@ function startDay(): void {
 
     for (let i: number = 0; i < foodSupplies.length; i++) {
         foodSupplies[i].report(fooddiv);
+    }
+
+    for (let i: number = 0; i < foodSupplies.length; i++) {
+        foodSupplies[i].restock(fooddiv);
     }
 }
