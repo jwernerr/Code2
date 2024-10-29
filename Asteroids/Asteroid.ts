@@ -16,7 +16,7 @@ namespace L09_Asteroids {
 
         move(_timeslice: number): void {
             console.log("Asteroid move");
-            let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
+            const offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
 

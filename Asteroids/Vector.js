@@ -18,8 +18,8 @@ var L09_Asteroids;
             this.y += _addend.y;
         }
         random(_minLength, _maxLength) {
-            let length = _minLength + Math.random() * (_maxLength - _minLength);
-            let direction = Math.random() * 2 * Math.PI;
+            const length = _minLength + Math.random() * (_maxLength - _minLength);
+            const direction = Math.random() * 2 * Math.PI;
             this.set(Math.cos(direction), Math.sin(direction));
             this.scale(length);
         }

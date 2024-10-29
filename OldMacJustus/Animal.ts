@@ -29,4 +29,44 @@ class Animal {
         _element.appendChild(para);
         this.food.stock -= this.foodConsumption;
     }
+
+    doSpecialAction(): string {
+        return "This animal doesn't have a special action"
+    }
+}
+
+class Rat extends Animal {
+    doSpecialAction(): string {
+        return this.name + " has made a trip into the city's canalisation today."
+    }
+}
+
+class Hamster extends Animal {
+    doSpecialAction(): string {
+        return this.name + " has ran in their wheel today."
+    }
+}
+
+class Mouse extends Animal {
+    doSpecialAction(): string {
+        return this.name + " has dug a hole today."
+    }
+}
+
+class Raccoon extends Animal {
+    doSpecialAction(): string {
+        return this.name + " has searched " + Math.floor(Math.random() * 3 + 1) + " trash can(s) today."
+    }
+}
+
+class Cat extends Animal {
+    doSpecialAction(): string {
+        return this.name + " has jumped off the roof today."
+    }
+}
+
+class Alligator extends Animal {
+    doSpecialAction(): string {
+        return this.name + " has almost murdered Old MacDonald today."
+    }
 }

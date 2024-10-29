@@ -21,7 +21,28 @@ function handleLoad() {
             animalFood = new Food(foodNames[i]);
             foodSupplies.push(animalFood);
         }
-        const newAnimal = new Animal(animalNames[i], animalTypes[i], animalFood, animalSounds[i]);
+        let newAnimal;
+        if (animalTypes[i] === "rat") {
+            newAnimal = new Rat(animalNames[i], animalTypes[i], animalFood, animalSounds[i]);
+        }
+        else if (animalTypes[i] === "hamster") {
+            newAnimal = new Hamster(animalNames[i], animalTypes[i], animalFood, animalSounds[i]);
+        }
+        else if (animalTypes[i] === "mouse") {
+            newAnimal = new Mouse(animalNames[i], animalTypes[i], animalFood, animalSounds[i]);
+        }
+        else if (animalTypes[i] === "raccoon") {
+            newAnimal = new Raccoon(animalNames[i], animalTypes[i], animalFood, animalSounds[i]);
+        }
+        else if (animalTypes[i] === "cat") {
+            newAnimal = new Cat(animalNames[i], animalTypes[i], animalFood, animalSounds[i]);
+        }
+        else if (animalTypes[i] === "alligator") {
+            newAnimal = new Alligator(animalNames[i], animalTypes[i], animalFood, animalSounds[i]);
+        }
+        else {
+            newAnimal = new Animal(animalNames[i], animalTypes[i], animalFood, animalSounds[i]);
+        }
         animals.push(newAnimal);
     }
     document.getElementsByTagName("button")[0].addEventListener("click", startDay);
@@ -32,11 +53,17 @@ function startDay() {
     document.getElementById("dayheader").innerHTML = "Day " + day;
     const animaldiv = document.getElementById("animalaction");
     const fooddiv = document.getElementById("foodaction");
+    const actiondiv = document.getElementById("actiondiv");
     animaldiv.innerHTML = "";
     fooddiv.innerHTML = "";
     for (let i = 0; i < animals.length; i++) {
         animals[i].sing(animaldiv);
         animals[i].eat(animaldiv);
+        if (Math.random() < 0.5) {
+            const para = document.createElement("p");
+            para.innerHTML = animals[i].doSpecialAction();
+            actiondiv.appendChild(para);
+        }
     }
     for (let i = 0; i < foodSupplies.length; i++) {
         foodSupplies[i].report(fooddiv);

@@ -12,7 +12,7 @@ var L09_Asteroids;
         }
         move(_timeslice) {
             console.log("Asteroid move");
-            let offset = new L09_Asteroids.Vector(this.velocity.x, this.velocity.y);
+            const offset = new L09_Asteroids.Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
             if (this.position.x < 0) {
