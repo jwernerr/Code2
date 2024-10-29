@@ -2,6 +2,7 @@
 var L09_Asteroids;
 (function (L09_Asteroids) {
     window.addEventListener("load", handleLoad);
+    let asteroids = [];
     function handleLoad(_event) {
         console.log("asteroids starting");
         let canvas = document.querySelector("canvas");
@@ -14,13 +15,63 @@ var L09_Asteroids;
         L09_Asteroids.crc2.fillRect(0, 0, L09_Asteroids.crc2.canvas.width, L09_Asteroids.crc2.canvas.height);
         L09_Asteroids.createPaths();
         console.log("Asteroid paths: ", L09_Asteroids.asteroidPaths);
-        let asteroid = new L09_Asteroids.Asteroid(1);
-        console.log(asteroid);
-        for (let i = 0; i < 100; i++) {
-            L09_Asteroids.crc2.fillRect(0, 0, L09_Asteroids.crc2.canvas.width, L09_Asteroids.crc2.canvas.height);
-            asteroid.draw();
-            asteroid.move(0.1);
+        createAsteroids(5);
+        //createShip();
+        canvas.addEventListener("mousedown", loadLaser);
+        canvas.addEventListener("mouseup", shootLaser);
+        canvas.addEventListener("keypress", handleKeypress);
+        canvas.addEventListener("mousemove", setHeading);
+        window.setInterval(update, 20);
+    }
+    function createAsteroids(_nAsteroids) {
+        console.log("create asteroids");
+        for (let i = 0; i < _nAsteroids; i++) {
+            const asteroid = new L09_Asteroids.Asteroid(1.0);
+            asteroids.push(asteroid);
         }
+    }
+    function update() {
+        console.log("update");
+        L09_Asteroids.crc2.fillRect(0, 0, L09_Asteroids.crc2.canvas.width, L09_Asteroids.crc2.canvas.height);
+        for (let asteroid of asteroids) {
+            asteroid.move(1 / 50);
+            asteroid.draw();
+        }
+    }
+    function loadLaser() {
+    }
+    function shootLaser(_event) {
+        console.log("shoot laser");
+        let hotspot = new L09_Asteroids.Vector(_event.clientX - L09_Asteroids.crc2.canvas.offsetLeft, _event.clientY - L09_Asteroids.crc2.canvas.offsetTop);
+        let asteroidHit = getAsteroidHit(hotspot);
+        if (asteroidHit) {
+            breakAsteroid(asteroidHit);
+        }
+        console.log(asteroidHit);
+    }
+    function breakAsteroid(_asteroid) {
+        if (_asteroid.size > 0.3) {
+            for (let i = 0; i < 2; i++) {
+                const pos = _asteroid.position.copy();
+                const fragment = new L09_Asteroids.Asteroid(_asteroid.size / 2, pos);
+                fragment.velocity.add(_asteroid.velocity);
+                asteroids.push(fragment);
+            }
+        }
+        let index = asteroids.indexOf(_asteroid);
+        asteroids.splice(index, 1);
+    }
+    function getAsteroidHit(_hotspot) {
+        for (let asteroid of asteroids) {
+            if (asteroid.isHit(_hotspot)) {
+                return asteroid;
+            }
+        }
+        return null;
+    }
+    function handleKeypress() {
+    }
+    function setHeading() {
     }
 })(L09_Asteroids || (L09_Asteroids = {}));
 //# sourceMappingURL=Main.js.map
