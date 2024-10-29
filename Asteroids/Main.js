@@ -14,3 +14,4 @@ function handleLoad(_event) {
     createPaths();
     console.log("Asteroid paths: ", asteroidPaths);
 }
+//# sourceMappingURL=Main.js.map
