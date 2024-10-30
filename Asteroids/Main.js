@@ -3,6 +3,7 @@ var L09_Asteroids;
 (function (L09_Asteroids) {
     window.addEventListener("load", handleLoad);
     let asteroids = [];
+    let projectile;
     function handleLoad(_event) {
         console.log("asteroids starting");
         let canvas = document.querySelector("canvas");
@@ -17,7 +18,7 @@ var L09_Asteroids;
         console.log("Asteroid paths: ", L09_Asteroids.asteroidPaths);
         createAsteroids(5);
         //createShip();
-        canvas.addEventListener("mousedown", loadLaser);
+        canvas.addEventListener("mousedown", shootProjectile);
         canvas.addEventListener("mouseup", shootLaser);
         canvas.addEventListener("keypress", handleKeypress);
         canvas.addEventListener("mousemove", setHeading);
@@ -37,6 +38,8 @@ var L09_Asteroids;
             asteroid.move(1 / 50);
             asteroid.draw();
         }
+        projectile.move(1 / 50);
+        projectile.draw();
     }
     function loadLaser() {
     }
@@ -72,6 +75,13 @@ var L09_Asteroids;
     function handleKeypress() {
     }
     function setHeading() {
+    }
+    function shootProjectile(_event) {
+        console.log("Shoot projectile");
+        let origin = new L09_Asteroids.Vector(_event.clientX - L09_Asteroids.crc2.canvas.offsetLeft, _event.clientY - L09_Asteroids.crc2.canvas.offsetTop);
+        let velocity = new L09_Asteroids.Vector(0, 0);
+        velocity.random(100, 100);
+        projectile = new L09_Asteroids.Projectile(origin, velocity);
     }
 })(L09_Asteroids || (L09_Asteroids = {}));
 //# sourceMappingURL=Main.js.map

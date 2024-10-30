@@ -1,9 +1,9 @@
 "use strict";
 var L09_Asteroids;
 (function (L09_Asteroids) {
-    class Asteroid {
+    class Asteroid extends L09_Asteroids.Moveable {
         constructor(_size, _position) {
-            console.log("Asteroid constructor");
+            super(_position);
             if (_position) {
                 this.position = _position;
             }
@@ -14,24 +14,6 @@ var L09_Asteroids;
             this.velocity.random(100, 200);
             this.type = Math.floor(Math.random() * 4);
             this.size = _size;
-        }
-        move(_timeslice) {
-            //console.log("Asteroid move");
-            const offset = new L09_Asteroids.Vector(this.velocity.x, this.velocity.y);
-            offset.scale(_timeslice);
-            this.position.add(offset);
-            if (this.position.x < 0) {
-                this.position.x += L09_Asteroids.crc2.canvas.width;
-            }
-            if (this.position.y < 0) {
-                this.position.y += L09_Asteroids.crc2.canvas.height;
-            }
-            if (this.position.x > L09_Asteroids.crc2.canvas.width) {
-                this.position.x -= L09_Asteroids.crc2.canvas.width;
-            }
-            if (this.position.y > L09_Asteroids.crc2.canvas.height) {
-                this.position.y -= L09_Asteroids.crc2.canvas.height;
-            }
         }
         draw() {
             //console.log("asteroid draw");
