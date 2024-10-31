@@ -62,6 +62,7 @@ function startDay(): void {
     animaldiv.innerHTML = "";
     fooddiv.innerHTML = "";
 
+
     for (let i: number = 0; i < animals.length; i++) {
         animals[i].sing(animaldiv);
         animals[i].eat(animaldiv);
