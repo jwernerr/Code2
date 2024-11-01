@@ -38,9 +38,11 @@ var Solarsystem;
             Solarsystem.crc2.fillStyle = this.color;
             Solarsystem.crc2.fill();
         }
-        checkClick(_click) {
+        checkClick(_click, _element) {
             const difference = new Solarsystem.Vector(_click.x - this.position.x, _click.y - this.position.y);
-            return (difference.x <= this.size && difference.y <= this.size);
+            if (difference.x <= this.size && difference.y <= this.size) {
+                _element.innerHTML = this.description;
+            }
         }
     }
     Solarsystem.Astrobody = Astrobody;
