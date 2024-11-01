@@ -33,7 +33,7 @@ var Solarsystem;
             }
         }
         draw() {
-            crc2.arc(this.position.x, this.position.y, this.size, 0, 2 * Math.PI);
+            Solarsystem.crc2.arc(this.position.x, this.position.y, this.size, 0, 2 * Math.PI);
         }
         checkClick(_click) {
             const difference = new Solarsystem.Vector(_click.x - this.position.x, _click.y - this.position.y);
