@@ -3,10 +3,10 @@ namespace Solarsystem {
         orbit: Astrobody[];
         size: number;
         color: string;
-        speed: number;
+        speed: number; //in radians, earth:6Math.PI/180
         orbitradius: number;
         description: string;
-        positiondeg: number;
+        positionrad: number; //in radians
         position: Vector;
 
         constructor(_orbit: Astrobody[], _size: number, _color: string, _speed: number, _orbitradius: number, _description: string, _position?: Vector) {
@@ -16,7 +16,7 @@ namespace Solarsystem {
             this.speed = _speed;
             this.orbitradius = _orbitradius;
             this.description = _description;
-            this.positiondeg = 0;
+            this.positionrad = 0;
             if (_position) {
                 this.position = _position;
             }
@@ -27,7 +27,7 @@ namespace Solarsystem {
 
         assignChildPositions(): void {
             for (const element of this.orbit) {
-                const addend: Vector = new Vector(Math.cos(element.positiondeg), Math.sin(element.positiondeg));
+                const addend: Vector = new Vector(Math.cos(element.positionrad), Math.sin(element.positionrad));
                 addend.scale(element.orbitradius);
                 element.position = addend.add(this.position)
             }
@@ -35,8 +35,8 @@ namespace Solarsystem {
 
         moveChildren(_timespeed: number, _timeslice: number): void {
             for (const element of this.orbit) {
-                element.positiondeg += (element.speed * _timespeed * _timeslice);
-                const addend: Vector = new Vector(Math.cos(element.positiondeg), Math.sin(element.positiondeg));
+                element.positionrad += (element.speed * _timespeed * _timeslice);
+                const addend: Vector = new Vector(Math.cos(element.positionrad), Math.sin(element.positionrad));
                 addend.scale(element.orbitradius);
                 element.position = addend.add(this.position);
             }
@@ -44,11 +44,16 @@ namespace Solarsystem {
 
         draw(): void {
             crc2.arc(this.position.x, this.position.y, this.size, 0, 2 * Math.PI);
+            crc2.stroke();
+            crc2.fillStyle = this.color;
+            crc2.fill();
         }
 
-        checkClick(_click: Vector): boolean {
+        checkClick(_click: Vector, _element: HTMLDivElement): void {
             const difference: Vector = new Vector(_click.x - this.position.x, _click.y - this.position.y);
-            return (difference.x <= this.size && difference.y <= this.size);
+            if (difference.x <= this.size && difference.y <= this.size) {
+                _element.innerHTML = this.description
+            }
         }
     }
 }

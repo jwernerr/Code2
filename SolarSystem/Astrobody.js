@@ -9,7 +9,7 @@ var Solarsystem;
             this.speed = _speed;
             this.orbitradius = _orbitradius;
             this.description = _description;
-            this.positiondeg = 0;
+            this.positionrad = 0;
             if (_position) {
                 this.position = _position;
             }
@@ -19,21 +19,24 @@ var Solarsystem;
         }
         assignChildPositions() {
             for (const element of this.orbit) {
-                const addend = new Solarsystem.Vector(Math.cos(element.positiondeg), Math.sin(element.positiondeg));
+                const addend = new Solarsystem.Vector(Math.cos(element.positionrad), Math.sin(element.positionrad));
                 addend.scale(element.orbitradius);
                 element.position = addend.add(this.position);
             }
         }
         moveChildren(_timespeed, _timeslice) {
             for (const element of this.orbit) {
-                element.positiondeg += (element.speed * _timespeed * _timeslice);
-                const addend = new Solarsystem.Vector(Math.cos(element.positiondeg), Math.sin(element.positiondeg));
+                element.positionrad += (element.speed * _timespeed * _timeslice);
+                const addend = new Solarsystem.Vector(Math.cos(element.positionrad), Math.sin(element.positionrad));
                 addend.scale(element.orbitradius);
                 element.position = addend.add(this.position);
             }
         }
         draw() {
             Solarsystem.crc2.arc(this.position.x, this.position.y, this.size, 0, 2 * Math.PI);
+            Solarsystem.crc2.stroke();
+            Solarsystem.crc2.fillStyle = this.color;
+            Solarsystem.crc2.fill();
         }
         checkClick(_click) {
             const difference = new Solarsystem.Vector(_click.x - this.position.x, _click.y - this.position.y);
