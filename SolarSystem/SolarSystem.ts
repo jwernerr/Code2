@@ -5,13 +5,13 @@ namespace Solarsystem {
 
     let timespeed: number = 0.5;
 
-    let astrobodies1: Astrobody[] = [];
-    let astrobodies2: Astrobody[] = [];
-    let astrobodies3: Astrobody[] = [];
+    const astrobodies1: Astrobody[] = [];
+    const astrobodies2: Astrobody[] = [];
+    const astrobodies3: Astrobody[] = [];
 
     function handleLoad(_event: Event): void {
         console.log("asteroids starting");
-        let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
+        const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
         if (!canvas) {
             return;
         }

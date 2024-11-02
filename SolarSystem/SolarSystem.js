@@ -3,12 +3,12 @@ var Solarsystem;
 (function (Solarsystem) {
     window.addEventListener("load", handleLoad);
     let timespeed = 0.5;
-    let astrobodies1 = [];
-    let astrobodies2 = [];
-    let astrobodies3 = [];
+    const astrobodies1 = [];
+    const astrobodies2 = [];
+    const astrobodies3 = [];
     function handleLoad(_event) {
         console.log("asteroids starting");
-        let canvas = document.querySelector("canvas");
+        const canvas = document.querySelector("canvas");
         if (!canvas) {
             return;
         }
