@@ -23,8 +23,8 @@ namespace Solarsystem {
     }
 
     function createPlanets(): void {
-        const mercury: Astrobody = new Astrobody([], 3, "orange", 6 * Math.PI, 20, "hihihoho");
-        const sun: Astrobody = new Astrobody([mercury], 10, "yellow", 0, 0, "sun lol", new Vector(crc2.canvas.width, crc2.canvas.height));
+        const mercury: Astrobody = new Astrobody([], 3, "orange", 6 * Math.PI / 180, 20, "hihihoho");
+        const sun: Astrobody = new Astrobody([mercury], 10, "yellow", 0, 0, "sun lol", new Vector(500, 400));
         astrobodies1.push(sun);
         astrobodies2.push(mercury);
     }

@@ -19,8 +19,8 @@ var Solarsystem;
         setInterval(update, 20);
     }
     function createPlanets() {
-        const mercury = new Solarsystem.Astrobody([], 3, "orange", 6 * Math.PI, 20, "hihihoho");
-        const sun = new Solarsystem.Astrobody([mercury], 10, "yellow", 0, 0, "sun lol", new Solarsystem.Vector(Solarsystem.crc2.canvas.width, Solarsystem.crc2.canvas.height));
+        const mercury = new Solarsystem.Astrobody([], 3, "orange", 6 * Math.PI / 180, 20, "hihihoho");
+        const sun = new Solarsystem.Astrobody([mercury], 10, "yellow", 0, 0, "sun lol", new Solarsystem.Vector(500, 400));
         astrobodies1.push(sun);
         astrobodies2.push(mercury);
     }

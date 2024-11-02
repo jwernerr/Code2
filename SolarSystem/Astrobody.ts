@@ -43,10 +43,13 @@ namespace Solarsystem {
         }
 
         draw(): void {
+            crc2.beginPath();
+            crc2.moveTo(this.position.x, this.position.y)
             crc2.arc(this.position.x, this.position.y, this.size, 0, 2 * Math.PI);
             crc2.stroke();
             crc2.fillStyle = this.color;
             crc2.fill();
+            crc2.closePath();
         }
 
         checkClick(_click: Vector, _element: HTMLDivElement): void {
