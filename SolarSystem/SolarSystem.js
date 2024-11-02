@@ -2,6 +2,7 @@
 var Solarsystem;
 (function (Solarsystem) {
     window.addEventListener("load", handleLoad);
+    let timespeed = 0.5;
     let astrobodies1 = [];
     let astrobodies2 = [];
     let astrobodies3 = [];
@@ -15,6 +16,11 @@ var Solarsystem;
         Solarsystem.crc2.fillStyle = "black";
         Solarsystem.crc2.strokeStyle = "white";
         Solarsystem.crc2.fillRect(0, 0, Solarsystem.crc2.canvas.width, Solarsystem.crc2.canvas.height);
+        canvas.addEventListener("click", handleClick);
+        const slider = document.getElementsByTagName("input")[0];
+        slider.onchange = function () {
+            timespeed = Number(slider.value);
+        };
         createPlanets();
         setInterval(update, 20);
     }
@@ -28,16 +34,29 @@ var Solarsystem;
         Solarsystem.crc2.fillStyle = "black";
         Solarsystem.crc2.fillRect(0, 0, Solarsystem.crc2.canvas.width, Solarsystem.crc2.canvas.height);
         for (const element of astrobodies1) {
-            element.moveChildren(1, 1 / 50);
+            element.moveChildren(timespeed, 1 / 50);
             element.draw();
         }
         for (const element of astrobodies2) {
-            element.moveChildren(1, 1 / 50);
+            element.moveChildren(timespeed, 1 / 50);
             element.draw();
         }
         for (const element of astrobodies3) {
-            element.moveChildren(1, 1 / 50);
+            element.moveChildren(timespeed, 1 / 50);
             element.draw();
+        }
+    }
+    function handleClick(_event) {
+        const div = document.getElementsByTagName("div")[0];
+        const click = new Solarsystem.Vector(_event.clientX - Solarsystem.crc2.canvas.offsetLeft, _event.clientY - Solarsystem.crc2.canvas.offsetTop);
+        for (const element of astrobodies1) {
+            element.checkClick(click, div);
+        }
+        for (const element of astrobodies2) {
+            element.checkClick(click, div);
+        }
+        for (const element of astrobodies3) {
+            element.checkClick(click, div);
         }
     }
 })(Solarsystem || (Solarsystem = {}));
