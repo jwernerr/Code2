@@ -32,10 +32,22 @@ namespace Solarsystem {
     }
 
     function createPlanets(): void {
-        const mercury: Astrobody = new Astrobody([], 3, "orange", 6 * Math.PI / 180, 20, "hihihoho");
-        const sun: Astrobody = new Astrobody([mercury], 10, "yellow", 0, 0, "sun lol", new Vector(500, 400));
+        //create moons
+        const earthMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, 17, "earth moon")
+
+        const mercury: Astrobody = new Astrobody([], 4.9, "#b1adad", (6 * Math.PI / 180) / 0.3, 0.3 * 100, "hihihoho");
+        const venus: Astrobody = new Astrobody([], 12.1, "#e3bb76", (6 * Math.PI / 180) / 0.6, 0.65 * 100, "venus hihi");
+        const earth: Astrobody = new Astrobody([earthMoon], 12.76, "#6b93d6", 6 * Math.PI / 180, 1 * 100, "earth:3");
+        const mars: Astrobody = new Astrobody([], 6.8, "#e77d11", (6 * Math.PI / 180) / 2, 1.52 * 100, "mars");
+        const jupiter: Astrobody = new Astrobody([], 30, "#d8ca9d", (6 * Math.PI / 180) / 12, 2 * 100, "jupiter");
+        const saturn: Astrobody = new Astrobody([], 25, "#fceead", (6 * Math.PI / 180) / 30, 2.7 * 100, "saturn");
+        const uranus: Astrobody = new Astrobody([], 15, "#afdbf5", (6 * Math.PI / 180) / 84, 3.5 * 100, "ur anus lollll");
+        const neptune: Astrobody = new Astrobody([], 14.7, "#3d5ef9", (6 * Math.PI / 180) / 165, 4.2 * 100, "neptune");
+
+        const sun: Astrobody = new Astrobody([mercury, venus, earth, mars, jupiter, saturn, uranus, neptune], 20, "yellow", 0, 0, "sun lol", new Vector(500, 400));
         astrobodies1.push(sun);
-        astrobodies2.push(mercury);
+        astrobodies2.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptune);
+        astrobodies3.push(earthMoon);
     }
 
     function update(): void {

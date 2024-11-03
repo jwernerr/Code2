@@ -8,6 +8,7 @@ namespace Solarsystem {
         description: string;
         positionrad: number; //in radians
         position: Vector;
+        moons: number;
 
         constructor(_orbit: Astrobody[], _size: number, _color: string, _speed: number, _orbitradius: number, _description: string, _position?: Vector) {
             this.orbit = _orbit;
@@ -54,7 +55,7 @@ namespace Solarsystem {
 
         checkClick(_click: Vector, _element: HTMLDivElement): void {
             const difference: Vector = new Vector(_click.x - this.position.x, _click.y - this.position.y);
-            if (difference.x <= this.size && difference.y <= this.size) {
+            if (Math.abs(difference.x) <= this.size && Math.abs(difference.y) <= this.size) {
                 _element.innerHTML = this.description
             }
         }

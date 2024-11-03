@@ -43,7 +43,7 @@ var Solarsystem;
         }
         checkClick(_click, _element) {
             const difference = new Solarsystem.Vector(_click.x - this.position.x, _click.y - this.position.y);
-            if (difference.x <= this.size && difference.y <= this.size) {
+            if (Math.abs(difference.x) <= this.size && Math.abs(difference.y) <= this.size) {
                 _element.innerHTML = this.description;
             }
         }
