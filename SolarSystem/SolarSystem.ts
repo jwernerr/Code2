@@ -32,11 +32,11 @@ namespace Solarsystem {
 
     function createPlanets(): void {
         //create moons
-        const earthMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, 17, "earth moon");
+        const earthMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, 17, "Earth has 1 moon.");
 
         const marsMoons: Astrobody[] = []
         for (let i: number = 0; i < 2; i++) {
-            const marsMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, 11, "mars moon" + (i + 1));
+            const marsMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, 11, "Mars has 2 moons.");
             marsMoon.positionrad = (2 * Math.PI) / 2 * i
             marsMoons.push(marsMoon);
             astrobodies3.push(marsMoon);
@@ -44,7 +44,7 @@ namespace Solarsystem {
 
         const jupiterMoons: Astrobody[] = [];
         for (let i: number = 0; i < 95; i++) {
-            const jupiterMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 35), "jupiter moon" + (i + 1));
+            const jupiterMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 35), "Jupiter has 95 moons.");
             jupiterMoon.positionrad = (2 * Math.PI) / 95 * i
             jupiterMoons.push(jupiterMoon);
             astrobodies3.push(jupiterMoon);
@@ -52,7 +52,7 @@ namespace Solarsystem {
 
         const saturnMoons: Astrobody[] = [];
         for (let i: number = 0; i < 146; i++) {
-            const saturnMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 30), "saturn moon" + (i + 1));
+            const saturnMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 30), "Saturn has 146 moons.");
             saturnMoon.positionrad = (2 * Math.PI) / 146 * i
             saturnMoons.push(saturnMoon);
             astrobodies3.push(saturnMoon);
@@ -60,7 +60,7 @@ namespace Solarsystem {
 
         const uranusMoons: Astrobody[] = [];
         for (let i: number = 0; i < 28; i++) {
-            const uranusMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 20), "saturn moon" + (i + 1));
+            const uranusMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 20), "Uranus has 28 moons.");
             uranusMoon.positionrad = (2 * Math.PI) / 28 * i
             uranusMoons.push(uranusMoon);
             astrobodies3.push(uranusMoon);
@@ -68,7 +68,7 @@ namespace Solarsystem {
 
         const neptuneMoons: Astrobody[] = [];
         for (let i: number = 0; i < 16; i++) {
-            const neptuneMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 20), "saturn moon" + (i + 1));
+            const neptuneMoon: Astrobody = new Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 20), "Neptune has 16 moons");
             neptuneMoon.positionrad = (2 * Math.PI) / 16 * i
             neptuneMoons.push(neptuneMoon);
             astrobodies3.push(neptuneMoon);
@@ -84,7 +84,7 @@ namespace Solarsystem {
         const neptune: Astrobody = new Astrobody(neptuneMoons, 14.7, "#3d5ef9", (6 * Math.PI / 180) / 165, 4.6 * 100, "Neptune is the eighth and most distant planet in our solar system. Dark, cold, and whipped by supersonic winds, ice giant Neptune is more than 30 times as far from the Sun as Earth. Neptune is the only planet in our solar system not visible to the naked eye. In 2011 Neptune completed its first 165-year orbit since its discovery in 1846.");
 
         //create sun
-        const sun: Astrobody = new Astrobody([mercury, venus, earth, mars, jupiter, saturn, uranus, neptune], 20, "yellow", 0, 0, "sun lol", new Vector(500, 400));
+        const sun: Astrobody = new Astrobody([mercury, venus, earth, mars, jupiter, saturn, uranus, neptune], 20, "yellow", 0, 0, "The Sun's gravity holds the solar system together, keeping everything – from the biggest planets to the smallest particles of debris – in its orbit. The connection and interactions between the Sun and Earth drive the seasons, ocean currents, weather, climate, radiation belts and auroras. Though it is special to us, there are billions of stars like our Sun scattered across the Milky Way galaxy.", new Vector(500, 400));
         astrobodies1.push(sun);
         astrobodies2.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptune);
         astrobodies3.push(earthMoon);

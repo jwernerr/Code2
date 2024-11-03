@@ -25,38 +25,38 @@ var Solarsystem;
     }
     function createPlanets() {
         //create moons
-        const earthMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, 17, "earth moon");
+        const earthMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, 17, "Earth has 1 moon.");
         const marsMoons = [];
         for (let i = 0; i < 2; i++) {
-            const marsMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, 11, "mars moon" + (i + 1));
+            const marsMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, 11, "Mars has 2 moons.");
             marsMoon.positionrad = (2 * Math.PI) / 2 * i;
             marsMoons.push(marsMoon);
             astrobodies3.push(marsMoon);
         }
         const jupiterMoons = [];
         for (let i = 0; i < 95; i++) {
-            const jupiterMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 35), "jupiter moon" + (i + 1));
+            const jupiterMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 35), "Jupiter has 95 moons.");
             jupiterMoon.positionrad = (2 * Math.PI) / 95 * i;
             jupiterMoons.push(jupiterMoon);
             astrobodies3.push(jupiterMoon);
         }
         const saturnMoons = [];
         for (let i = 0; i < 146; i++) {
-            const saturnMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 30), "saturn moon" + (i + 1));
+            const saturnMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 30), "Saturn has 146 moons.");
             saturnMoon.positionrad = (2 * Math.PI) / 146 * i;
             saturnMoons.push(saturnMoon);
             astrobodies3.push(saturnMoon);
         }
         const uranusMoons = [];
         for (let i = 0; i < 28; i++) {
-            const uranusMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 20), "saturn moon" + (i + 1));
+            const uranusMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 20), "Uranus has 28 moons.");
             uranusMoon.positionrad = (2 * Math.PI) / 28 * i;
             uranusMoons.push(uranusMoon);
             astrobodies3.push(uranusMoon);
         }
         const neptuneMoons = [];
         for (let i = 0; i < 16; i++) {
-            const neptuneMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 20), "saturn moon" + (i + 1));
+            const neptuneMoon = new Solarsystem.Astrobody([], 1, "lightgray", 12 * 6 * Math.PI / 180, Math.floor(Math.random() * 10 + 20), "Neptune has 16 moons");
             neptuneMoon.positionrad = (2 * Math.PI) / 16 * i;
             neptuneMoons.push(neptuneMoon);
             astrobodies3.push(neptuneMoon);
@@ -71,7 +71,7 @@ var Solarsystem;
         const uranus = new Solarsystem.Astrobody(uranusMoons, 15, "#afdbf5", (6 * Math.PI / 180) / 84, 3.9 * 100, "Uranus is the seventh planet from the Sun, and it has the third largest diameter of planets in our solar system. Uranus appears to spin sideways. Uranus is a very cold and windy world. The ice giant is surrounded by 13 faint rings and 28 small moons. Uranus rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin sideways, orbiting the Sun like a rolling ball.");
         const neptune = new Solarsystem.Astrobody(neptuneMoons, 14.7, "#3d5ef9", (6 * Math.PI / 180) / 165, 4.6 * 100, "Neptune is the eighth and most distant planet in our solar system. Dark, cold, and whipped by supersonic winds, ice giant Neptune is more than 30 times as far from the Sun as Earth. Neptune is the only planet in our solar system not visible to the naked eye. In 2011 Neptune completed its first 165-year orbit since its discovery in 1846.");
         //create sun
-        const sun = new Solarsystem.Astrobody([mercury, venus, earth, mars, jupiter, saturn, uranus, neptune], 20, "yellow", 0, 0, "sun lol", new Solarsystem.Vector(500, 400));
+        const sun = new Solarsystem.Astrobody([mercury, venus, earth, mars, jupiter, saturn, uranus, neptune], 20, "yellow", 0, 0, "The Sun's gravity holds the solar system together, keeping everything – from the biggest planets to the smallest particles of debris – in its orbit. The connection and interactions between the Sun and Earth drive the seasons, ocean currents, weather, climate, radiation belts and auroras. Though it is special to us, there are billions of stars like our Sun scattered across the Milky Way galaxy.", new Solarsystem.Vector(500, 400));
         astrobodies1.push(sun);
         astrobodies2.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptune);
         astrobodies3.push(earthMoon);
