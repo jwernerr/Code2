@@ -84,7 +84,7 @@ namespace Solarsystem {
         const neptune: Astrobody = new Astrobody(neptuneMoons, 14.7, "#3d5ef9", (6 * Math.PI / 180) / 165, 4.6 * 100, "Neptune is the eighth and most distant planet in our solar system. Dark, cold, and whipped by supersonic winds, ice giant Neptune is more than 30 times as far from the Sun as Earth. Neptune is the only planet in our solar system not visible to the naked eye. In 2011 Neptune completed its first 165-year orbit since its discovery in 1846.");
 
         //create sun
-        const sun: Astrobody = new Astrobody([mercury, venus, earth, mars, jupiter, saturn, uranus, neptune], 20, "yellow", 0, 0, "The Sun's gravity holds the solar system together, keeping everything – from the biggest planets to the smallest particles of debris – in its orbit. The connection and interactions between the Sun and Earth drive the seasons, ocean currents, weather, climate, radiation belts and auroras. Though it is special to us, there are billions of stars like our Sun scattered across the Milky Way galaxy.", new Vector(500, 400));
+        const sun: Astrobody = new Astrobody([mercury, venus, earth, mars, jupiter, saturn, uranus, neptune], 20, "yellow", 0, 0, "The Sun's gravity holds the solar system together, keeping everything – from the biggest planets to the smallest particles of debris – in its orbit. The connection and interactions between the Sun and Earth drive the seasons, ocean currents, weather, climate, radiation belts and auroras. Though it is special to us, there are billions of stars like our Sun scattered across the Milky Way galaxy.", new Vector(1125, 400));
         astrobodies1.push(sun);
         astrobodies2.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptune);
         astrobodies3.push(earthMoon);
