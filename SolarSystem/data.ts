@@ -49,6 +49,30 @@ namespace Solarsystem {
             speed: (6 * Math.PI / 180) / 12,
             orbitradius: 2.2 * 100,
             description: "Jupiter is a world of extremes. It's the largest planet in our solar system – if it were a hollow shell, 1,000 Earths could fit inside. It's also the oldest planet, forming from the dust and gases left over from the Sun's formation 4.6 billion years ago. But it has the shortest day in the solar system, taking only 10.5 hours to spin around once on its axis. Jupiter's signature stripes and swirls are actually cold, windy clouds of ammonia and water, floating in an atmosphere of hydrogen and helium. The dark orange stripes are called belts, while the lighter bands are called zones, and they flow east and west in opposite directions. Jupiter’s iconic Great Red Spot is a giant storm bigger than Earth that has raged for hundreds of years."
+        },
+        {
+            orbit: [],
+            size: 25,
+            color: "#fceead",
+            speed: (6 * Math.PI / 180) / 30,
+            orbitradius: 3.1 * 100,
+            description: "Saturn is the sixth planet from the Sun, and the second-largest planet in our solar system. Like fellow gas giant Jupiter, Saturn is a massive ball made mostly of hydrogen and helium. Saturn is not the only planet to have rings, but none are as spectacular or as complex as Saturn's. Saturn also has dozens of moons."
+        },
+        {
+            orbit: [],
+            size: 15,
+            color: "#afdbf5",
+            speed: (6 * Math.PI / 180) / 84,
+            orbitradius: 3.9 * 100,
+            description: "Uranus is the seventh planet from the Sun, and it has the third largest diameter of planets in our solar system. Uranus appears to spin sideways. Uranus is a very cold and windy world. The ice giant is surrounded by 13 faint rings and 28 small moons. Uranus rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin sideways, orbiting the Sun like a rolling ball."
+        },
+        {
+            orbit: [],
+            size: 14.7,
+            color: "#3d5ef9",
+            speed: (6 * Math.PI / 180) / 165,
+            orbitradius: 3.1,
+            description: "Neptune is the eighth and most distant planet in our solar system. Dark, cold, and whipped by supersonic winds, ice giant Neptune is more than 30 times as far from the Sun as Earth. Neptune is the only planet in our solar system not visible to the naked eye. In 2011 Neptune completed its first 165-year orbit since its discovery in 1846."
         }],
         size: 20,
         color: "yellow",
