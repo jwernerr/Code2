@@ -4,7 +4,7 @@ namespace L09_Asteroids {
     export let crc2: CanvasRenderingContext2D;
 
     let asteroids: Asteroid[] = [];
-    let projectile:Projectile;
+    let projectile: Projectile;
 
     function handleLoad(_event: Event): void {
         console.log("asteroids starting");
@@ -49,7 +49,7 @@ namespace L09_Asteroids {
             asteroid.draw();
         }
 
-        projectile.move(1/50)
+        projectile.move(1 / 50)
         projectile.draw();
     }
 
@@ -98,11 +98,13 @@ namespace L09_Asteroids {
 
     }
 
-    function shootProjectile(_event:MouseEvent):void{
+    function shootProjectile(_event: MouseEvent): void {
         console.log("Shoot projectile")
         let origin: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
-        let velocity:Vector=new Vector(0,0);
-        velocity.random(100,100);
-        projectile=new Projectile(origin,velocity);
+        let velocity: Vector = new Vector(0, 0);
+        velocity.random(100, 100);
+        projectile = new Projectile(origin, velocity);
     }
+
+
 }

@@ -34,5 +34,7 @@ namespace L09_Asteroids {
             const copiedVector: Vector = new Vector(this.x, this.y);
             return copiedVector;
         }
+
+
     }
 }
