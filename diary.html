@@ -100,6 +100,51 @@
     <ul>
         <li></li>
     </ul>
+
+    <h2>Game Programming Patterns</h2>
+    <ul>
+        <li>Flyweight</li>
+        <ul>
+            <li>store data somewhere else so instances can share the same piece of data</li>
+            <li>code becomes more readable and you know exactly where to change the data</li>
+        </ul>
+        <li>Observer</li>
+        <ul>
+            <li>basically event listeners, waits for a specific event to happen</li>
+        </ul>
+        <li>Game Loop</li>
+        <ul>
+            <li>processes user input, but doesnt wait for it</li>
+            <li>updates game state</li>
+            <li>renders game</li>
+        </ul>
+        <li>Update Method</li>
+        <ul>
+            <li>object knows how to update, game loop only needs to call the objects update method to update it to the
+                current frame</li>
+            <li>„The game world maintains a collection of objects. Each object implements an update method that
+                simulates one frame of
+                the object's behavior. Each frame, the game updates every object in the collection“</li>
+        </ul>
+        <li>Component (ESC)</li>
+        <ul>
+            <li>instead of one big class (Bjorn) create many classes (physicscomponent, graphicscomponent,…) that dont
+                know about each
+                other</li>
+            <li>those are reusable</li>
+            <li>„A single entity spans multiple domains. To keep the domains isolated, the code for each is placed in
+                its own component
+                class. The entity is reduced to a simple container of components.“</li>
+        </ul>
+        <li>Object Pool</li>
+        <ul>
+            <li>„Define a pool class that maintains a collection of reusable objects. Each object supports an “in use”
+                query to tell if
+                it is currently “alive”. When the pool is initialized, it creates the entire collection of objects up
+                front (usually in
+                a single contiguous allocation) and initializes them all to the “not in use” state.“</li>
+        </ul>
+    </ul>
 </body>
 
 </html>
