@@ -39,12 +39,6 @@ var Dog;
     Dog_1.Chihuahua = Chihuahua;
     class Watchdog extends Dog {
         bark() {
-            let TASK;
-            (function (TASK) {
-                TASK[TASK["WATCH"] = 0] = "WATCH";
-                TASK[TASK["PATROL"] = 1] = "PATROL";
-                TASK[TASK["SLEEP"] = 2] = "SLEEP";
-            })(TASK || (TASK = {}));
             console.log(this.sound);
         }
     }
